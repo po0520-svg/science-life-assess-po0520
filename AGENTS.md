@@ -8,4 +8,4 @@
 
 修改 data.js 後，執行 `node tools/build-keys.cjs` 與 `node tests/core.cjs`，同步 GAS 答案表。部署 GAS 更新時須建立新的部署版本。
 
-目前自由導覽供教師檢查；收到使用者指示後才鎖定關卡。
+學生必須依序完成各關才能解鎖下一關；教師模式可解鎖供檢查。

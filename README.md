@@ -32,6 +32,7 @@
 ```sh
 node tools/build-keys.cjs
 node tests/core.cjs
+node tests/collector.cjs
 ```
 
 GitHub Actions 將網站檔與 `assets` 發布至 Pages。原始 PDF、DOCX、草圖及試算表不發布。

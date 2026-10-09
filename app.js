@@ -12,7 +12,7 @@ function total(){return Object.values(state?.points||{}).reduce((a,b)=>a+b,0);}
 function save(){write('science-state',state);}
 function emit(kind,detail={}){if(!state)return;const e={requestId:crypto.randomUUID(),courseId:C.courseId,session:state.session,token:state.token,identity:{...state.identity},kind,detail,clientTime:new Date().toISOString()};queue.push(e);write('science-queue',queue);sync();}
 function same(a,b){if(Array.isArray(b))return Array.isArray(a)&&a.length===b.length&&([...a].sort().join('|')===[...b].sort().join('|'));if(b&&typeof b==='object')return a&&Object.keys(b).every(k=>a[k]===b[k]);return String(a)===String(b);}
-function grade(q,a){if(q.type==='order')return Array.isArray(a)&&a.join('|')===q.answer.join('|');return same(a,q.answer);}
+function grade(q,a){if(q.type==='number')return a!==''&&a!==null&&a!==undefined&&Number.isFinite(Number(a))&&Number(a)===Number(q.answer);if(q.type==='order')return Array.isArray(a)&&a.join('|')===q.answer.join('|');return same(a,q.answer);}
 function filled(q,a){if(q.type==='multi')return Array.isArray(a)&&a.length>0;if(q.type==='order')return Array.isArray(a)&&a.length===q.options.length;if(['match','classify'].includes(q.type))return a&&q.options.every(o=>a[o.id]);return a!==undefined&&a!==null&&a!=='';}
 window.ScienceCore={grade,filled,shuffle};
 function requireStudent(){if(state)return true;toast('請先填寫班級、座號與姓名，再開始學習。');location.hash='home';return false;}

@@ -1,0 +1,13 @@
+草圖/
+圖檔/
+教材核對/
+*.pdf
+*.pdf.txt
+*.docx
+*.xlsx
+*.log
+node_modules/
+test-results/
+.env*
+*.local.*
+.clasp.json

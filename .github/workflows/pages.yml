@@ -21,7 +21,7 @@ jobs:
       - uses: actions/configure-pages@v5
       - run: |
           mkdir public
-          cp index.html styles.css config.js data.js app.js .nojekyll public/
+          cp index.html styles.css config.js data.js microscope.js app.js .nojekyll public/
           cp -R assets public/
       - uses: actions/upload-pages-artifact@v3
         with:
